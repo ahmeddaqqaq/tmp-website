@@ -137,6 +137,42 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Diagonal image cut on the leading edge; mirrored for RTL. */
+.clip-diagonal {
+  clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+[dir="rtl"] .clip-diagonal {
+  clip-path: polygon(88% 0%, 0% 0%, 0% 100%, 100% 100%);
+}
+
+/* Arabic: dedicated font, and none of the Latin display styling — Arabic has
+   no letter case, letter-spacing breaks its letter joining, and the tight
+   Latin line-heights clip its ascenders and dots. */
+html[dir="rtl"] {
+  font-family: var(--font-arabic), var(--font-sans), sans-serif;
+}
+
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2 {
+  line-height: 1.2 !important;
+}
+
+[dir="rtl"] h3 {
+  line-height: 1.35 !important;
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;

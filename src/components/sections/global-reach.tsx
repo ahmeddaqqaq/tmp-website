@@ -1,32 +1,34 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, User } from "lucide-react";
 import mapData from "@/lib/world-map-data.json";
 import { Reveal, RevealItem } from "@/components/reveal";
 
+// Quotes and titles live in the message files; people's names stay as written.
 const TESTIMONIALS = [
-  {
-    quote:
-      "I cannot speak highly enough about how much of a pleasure it was working with TPM as our PRA partner. TPM has been an extremely valuable resource and we couldn't be any glad with the service that it provided. Even more than its great work, our company appreciated TPM's professionalism and constant communication.",
-    name: "Shauqat Alam",
-    title: "Consultant, Al Bilad Group – KSA",
-  },
-  {
-    quote: "Best PRA ever!",
-    name: "Bassam Qaoud",
-    title: "HR Director, New Boy Saudi Arabia Limited",
-  },
-];
+  { id: "alam", name: "Shauqat Alam" },
+  { id: "moagrabi", name: "Engr. Mohammad Al Moagrabi" },
+  { id: "shareef", name: "Abdulaziz Al Shareef" },
+  { id: "alayed", name: "Ahmed Ayed Abdulrahman Al Ayed" },
+  { id: "reyes", name: "Sunny Reyes" },
+  { id: "henaidy", name: "Omar Abdulaziz Henaidy" },
+  { id: "qaoud", name: "Bassam Qaoud" },
+  { id: "dawasari", name: "Khalid Al Dawasari" },
+] as const;
 
-const ROUTES: { key: keyof typeof mapData.markers; label: string }[] = [
-  { key: "kuwait", label: "KUWAIT" },
-  { key: "qatar", label: "QATAR" },
-  { key: "saudiArabia", label: "SAUDI ARABIA" },
-  { key: "uae", label: "UNITED ARAB\nEMIRATES" },
-  { key: "indonesia", label: "INDONESIA" },
-];
+const LONG_QUOTE_CHARS = 200;
+
+const ROUTES = [
+  { key: "kuwait" },
+  { key: "qatar" },
+  { key: "saudiArabia" },
+  { key: "uae" },
+  { key: "indonesia" },
+] as const;
 
 const LABEL_OFFSETS: Record<string, { dx: number; dy: number; anchor: "start" | "end" }> = {
   kuwait: { dx: -16, dy: -8, anchor: "end" },
@@ -62,25 +64,24 @@ const PARTNER_LOGOS: { name: string; file: string; invert?: boolean }[] = [
 ];
 
 function TrustedPartnerships() {
+  const t = useTranslations("GlobalReach.partners");
+
   return (
     <div className="relative overflow-hidden bg-white px-[5%] py-16">
       <Reveal>
         <RevealItem>
           <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-tpm-blue sm:text-sm">
-            TRUSTED PARTNERSHIPS
+            {t("kicker")}
           </p>
         </RevealItem>
         <RevealItem>
-          <h2 className="max-w-xl text-4xl font-extrabold uppercase leading-[1.05] text-tpm-navy sm:text-5xl">
-            Built on Trust.
-            <br />
-            Proven Across Borders.
+          <h2 className="max-w-xl whitespace-pre-line text-4xl font-extrabold uppercase leading-[1.05] text-tpm-navy sm:text-5xl">
+            {t("headline")}
           </h2>
         </RevealItem>
         <RevealItem>
           <p className="mt-5 max-w-md text-base text-zinc-600">
-            Employers across industries rely on TPM for responsive, ethical,
-            and dependable recruitment.
+            {t("body")}
           </p>
         </RevealItem>
 
@@ -92,7 +93,7 @@ function TrustedPartnerships() {
                 alt={logo.name}
                 fill
                 sizes="180px"
-                className={`object-contain object-left grayscale ${logo.invert ? "invert" : ""}`}
+                className={`object-contain object-left rtl:object-right grayscale ${logo.invert ? "invert" : ""}`}
               />
             </div>
           ))}
@@ -103,8 +104,8 @@ function TrustedPartnerships() {
 }
 
 function TestimonialCarousel() {
+  const t = useTranslations("GlobalReach.testimonials");
   const [index, setIndex] = useState(0);
-  const active = TESTIMONIALS[index];
 
   const go = (dir: 1 | -1) => {
     setIndex((i) => (i + dir + TESTIMONIALS.length) % TESTIMONIALS.length);
@@ -113,31 +114,58 @@ function TestimonialCarousel() {
   return (
     <div>
       <p className="mb-8 text-xs font-semibold tracking-[0.2em] text-tpm-blue-light sm:text-sm">
-        WHAT OUR PARTNERS SAY
+        {t("kicker")}
       </p>
 
       <Quote className="size-10 text-tpm-blue-light/50" fill="currentColor" />
 
-      <blockquote className="mt-4 line-clamp-4 min-h-[6.9rem] text-xl font-medium leading-snug text-white sm:min-h-[8.25rem] sm:text-2xl">
-        {active.quote}
-      </blockquote>
+      {/* All testimonials share one grid cell so the block is always as tall
+          as the longest one: no clipping, no layout shift between slides. */}
+      <div className="mt-4 grid">
+        {TESTIMONIALS.map((item, i) => {
+          const isActive = i === index;
+          const quote = t(`items.${item.id}.quote`);
+          const isLong = quote.length > LONG_QUOTE_CHARS;
+          return (
+            <motion.figure
+              key={item.id}
+              className="col-start-1 row-start-1"
+              initial={false}
+              animate={{ opacity: isActive ? 1 : 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              aria-hidden={!isActive}
+              style={{ pointerEvents: isActive ? "auto" : "none" }}
+            >
+              <blockquote
+                className={`font-medium leading-snug text-white ${
+                  isLong ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
+                }`}
+              >
+                {quote}
+              </blockquote>
 
-      <div className="mt-8 h-px w-16 bg-tpm-blue-light/40" />
+              <div className="mt-8 h-px w-16 bg-tpm-blue-light/40" />
 
-      <div className="mt-6 flex items-center gap-3">
-        <div className="flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-tpm-blue-light text-tpm-blue-light">
-          <User className="size-5" />
-        </div>
-        <div>
-          <div className="text-sm font-bold uppercase tracking-wide text-white">
-            {active.name}
-          </div>
-          <div className="text-sm text-white/60">{active.title}</div>
-        </div>
+              <figcaption className="mt-6 flex items-center gap-3">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-full border-2 border-tpm-blue-light text-tpm-blue-light">
+                  <User className="size-5" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold uppercase tracking-wide text-white">
+                    <bdi>{item.name}</bdi>
+                  </div>
+                  <div className="text-sm text-white/60">
+                    {t(`items.${item.id}.title`)}
+                  </div>
+                </div>
+              </figcaption>
+            </motion.figure>
+          );
+        })}
       </div>
 
       <div className="mt-10 flex items-center gap-5">
-        <span className="text-sm text-white/70">
+        <span className="text-sm text-white/70" dir="ltr">
           <span className="text-xl font-bold text-tpm-blue-light">
             {String(index + 1).padStart(2, "0")}
           </span>
@@ -147,19 +175,19 @@ function TestimonialCarousel() {
         <div className="flex gap-2">
           <button
             type="button"
-            aria-label="Previous testimonial"
+            aria-label={t("previous")}
             onClick={() => go(-1)}
             className="flex size-9 items-center justify-center rounded-full border border-tpm-blue-light/50 text-tpm-blue-light transition-colors hover:bg-white/10"
           >
-            <ChevronLeft className="size-4" />
+            <ChevronLeft className="size-4 rtl:rotate-180" />
           </button>
           <button
             type="button"
-            aria-label="Next testimonial"
+            aria-label={t("next")}
             onClick={() => go(1)}
             className="flex size-9 items-center justify-center rounded-full border border-tpm-blue-light/50 text-tpm-blue-light transition-colors hover:bg-white/10"
           >
-            <ChevronRight className="size-4" />
+            <ChevronRight className="size-4 rtl:rotate-180" />
           </button>
         </div>
       </div>
@@ -168,6 +196,7 @@ function TestimonialCarousel() {
 }
 
 function WorldMap() {
+  const t = useTranslations("GlobalReach.map");
   const { width, height, philippinesPath, markers } = mapData;
   const originalHub = markers.philippines;
   const hub = { x: width / 2, y: height / 2 };
@@ -186,18 +215,17 @@ function WorldMap() {
   return (
     <div>
       <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-tpm-blue-light sm:text-sm">
-        OUR GLOBAL REACH
+        {t("kicker")}
       </p>
-      <p className="mb-6 max-w-sm text-base text-white/70">
-        Connecting Filipino talent with opportunities across key
-        international markets.
-      </p>
+      <p className="mb-6 max-w-sm text-base text-white/70">{t("body")}</p>
 
+      {/* Geography doesn't mirror: the map stays left-to-right in RTL pages. */}
       <svg
+        style={{ direction: "ltr" }}
         viewBox={`0 0 ${width} ${height}`}
         className="w-full"
         role="img"
-        aria-label="Map showing TPM's deployment routes from the Philippines to Kuwait, Qatar, Saudi Arabia, the United Arab Emirates, and Indonesia"
+        aria-label={t("ariaLabel")}
       >
         {ROUTES.map(({ key }) => {
           const m = radialMarkers[key];
@@ -240,7 +268,7 @@ function WorldMap() {
         />
         <circle cx={hub.x} cy={hub.y} r={4} className="fill-white stroke-tpm-blue-light" strokeWidth={2} />
 
-        {ROUTES.map(({ key, label }) => {
+        {ROUTES.map(({ key }) => {
           const m = radialMarkers[key];
           const offset = LABEL_OFFSETS[key];
           return (
@@ -253,14 +281,14 @@ function WorldMap() {
                 className="fill-tpm-blue-light stroke-white"
                 strokeWidth={1.5}
               />
-              {label.split("\n").map((line, i) => (
+              {t(`markets.${key}`).split("\n").map((line, i) => (
                 <text
                   key={line}
                   x={m.x + offset.dx}
                   y={m.y + offset.dy + i * 12}
                   textAnchor={offset.anchor}
                   className="fill-white text-[11px] font-bold"
-                  style={{ fontFamily: "var(--font-sans)" }}
+                  style={{ fontFamily: "var(--font-sans), var(--font-arabic), sans-serif" }}
                 >
                   {line}
                 </text>
@@ -275,15 +303,15 @@ function WorldMap() {
 
 export function GlobalReach() {
   return (
-    <section>
+    <section id="employers">
       <TrustedPartnerships />
 
       <div className="relative overflow-hidden bg-tpm-navy px-[5%] py-20">
         <Reveal className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:divide-x lg:divide-white/10">
-          <RevealItem className="lg:pr-10">
+          <RevealItem className="lg:pe-10">
             <TestimonialCarousel />
           </RevealItem>
-          <RevealItem className="lg:pl-10">
+          <RevealItem className="lg:ps-10">
             <WorldMap />
           </RevealItem>
         </Reveal>

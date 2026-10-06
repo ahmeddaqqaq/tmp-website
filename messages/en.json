@@ -1,0 +1,180 @@
+{
+  "Metadata": {
+    "title": "TPM | Total Performance Manpower Supply Corp.",
+    "description": "Connecting exceptional Filipino talent with trusted employers across the world."
+  },
+  "Contact": {
+    "whatsappPrefill": "Hello TPM, I'm interested in job opportunities.",
+    "hireSubject": "Hiring Filipino Talent"
+  },
+  "Nav": {
+    "home": "Home",
+    "vision": "Vision",
+    "employers": "Employers",
+    "services": "Services",
+    "contact": "Contact",
+    "findOpportunities": "Find Opportunities",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Switch language to Arabic"
+  },
+  "Hero": {
+    "kicker": "GLOBAL MANPOWER. HUMAN POTENTIAL.",
+    "headline": "Turning\nPotential\nInto\nPerformance",
+    "subheading": "Connecting exceptional Filipino talent with trusted employers across the world.",
+    "partnerCta": "Partner with TPM",
+    "exploreCta": "Explore Opportunities",
+    "imageAlt": "TPM deployed professionals",
+    "stats": {
+      "workers": "Workers Deployed",
+      "years": "Years of Service",
+      "markets": "Global Markets"
+    }
+  },
+  "Vision": {
+    "kicker": "OUR VISION",
+    "statement": "We are a world-class company that excels in best quality recruitment and reliable services delivery to partner-companies and worker-applicants."
+  },
+  "Recruitment": {
+    "kicker": "BUILT FOR PEOPLE. PROVEN BY PERFORMANCE.",
+    "headline": "Recruitment,\nSimplified.",
+    "body": "We understand every client's unique workforce needs, then build a tailor-fit sourcing and deployment solution.",
+    "imageAlt": "TPM recruitment team reviewing candidate documentation",
+    "stats": {
+      "workers": "Workers Deployed",
+      "established": "Established",
+      "markets": "Global Markets"
+    },
+    "framework": {
+      "title": "OUR 3S FRAMEWORK",
+      "items": {
+        "sourcing": "Simplified\nSourcing Solutions",
+        "documentation": "Documentation &\nProcessing",
+        "assistance": "Worker Assistance\nProgram"
+      }
+    },
+    "skills": {
+      "title": "Skills We Deploy",
+      "previous": "Show previous skills",
+      "next": "Show next skills",
+      "items": {
+        "construction": "Construction",
+        "healthcare": "Healthcare",
+        "hospitality": "Hospitality",
+        "aviation": "Aviation",
+        "manufacturing": "Manufacturing"
+      }
+    }
+  },
+  "Process": {
+    "kicker": "END-TO-END RECRUITMENT",
+    "headline": "A Clear Path\nto Deployment.",
+    "body": "From candidate sourcing to arrival support, every step is managed with care, transparency, and full regulatory compliance.",
+    "imageAlt": "TPM consultant reviewing deployment documentation with candidates",
+    "steps": {
+      "source": "Source",
+      "screen": "Screen",
+      "document": "Document",
+      "deploy": "Deploy",
+      "support": "Support"
+    }
+  },
+  "GlobalReach": {
+    "partners": {
+      "kicker": "TRUSTED PARTNERSHIPS",
+      "headline": "Built on Trust.\nProven Across Borders.",
+      "body": "Employers across industries rely on TPM for responsive, ethical, and dependable recruitment."
+    },
+    "testimonials": {
+      "kicker": "WHAT OUR PARTNERS SAY",
+      "previous": "Previous testimonial",
+      "next": "Next testimonial",
+      "items": {
+        "alam": {
+          "quote": "I cannot speak highly enough about how much of a pleasure it was working with TPM as our PRA partner. TPM has been an extremely valuable resource and we couldn't be any glad with the service that it provided. Even more than its great work, our company appreciated TPM's professionalism and constant communication.",
+          "title": "Consultant, Al Bilad Group – KSA"
+        },
+        "moagrabi": {
+          "quote": "We have been with TPM as our PRA for many years now, and they have been constantly genuine in our journey towards finding appropriate skilled and professional workers for our company. I'm truly glad to have been associated with their team.",
+          "title": "Project Engineer, Metal Land World Co. LLC – Dubai"
+        },
+        "shareef": {
+          "quote": "Our first project with TPM has been a resounding success, from scrutinizing applicants to the whole experience of hiring people, it has been faultless.",
+          "title": "Chief Executive Officer, Al Sharif Group"
+        },
+        "alayed": {
+          "quote": "With TPM, I trust that I'm in good company.",
+          "title": "Vice-President, FBC Industrial Company – KSA"
+        },
+        "reyes": {
+          "quote": "TPM is our first PRA partner and they are always responsive to any queries that we have. They keep us informed and they understand our company and what we want to achieve. I firmly believe that. And anytime that I make contact with them, they let me know that they've received it and they let me know what the next step is.",
+          "title": "Principal, Mentari Intercultural School – Indonesia"
+        },
+        "henaidy": {
+          "quote": "Comprehensive Human Resource System, unmatched service costs, aggressive negotiating and generous giving to a broad cross-section of a recruitment firm are the main attributes separating TPM from other land-based agencies in the Philippines.",
+          "title": "Chief Executive Officer, TAJ Systems Limited Company"
+        },
+        "qaoud": {
+          "quote": "Best PRA ever!",
+          "title": "HR Director, New Boy Saudi Arabia Limited"
+        },
+        "dawasari": {
+          "quote": "TPM provided us with dependable Filipino workers who are the back-bone of our company. It was a right decision to have them as our partner PRA.",
+          "title": "Human Resource Manager, Jadwalean International Company"
+        }
+      }
+    },
+    "map": {
+      "kicker": "OUR GLOBAL REACH",
+      "body": "Connecting Filipino talent with opportunities across key international markets.",
+      "ariaLabel": "Map showing TPM's deployment routes from the Philippines to Kuwait, Qatar, Saudi Arabia, the United Arab Emirates, and Indonesia",
+      "markets": {
+        "kuwait": "KUWAIT",
+        "qatar": "QATAR",
+        "saudiArabia": "SAUDI ARABIA",
+        "uae": "UNITED ARAB\nEMIRATES",
+        "indonesia": "INDONESIA"
+      }
+    }
+  },
+  "Footer": {
+    "cta": {
+      "kicker": "READY TO MOVE FORWARD?",
+      "headline": "Let's Turn Potential\nInto Performance.",
+      "body": "Whether you need exceptional talent or your next international opportunity, TPM is ready to help.",
+      "hire": "Hire Filipino Talent",
+      "explore": "Explore Job Opportunities",
+      "imageAlt": "TPM-deployed professionals across industries"
+    },
+    "office": {
+      "visit": "VISIT OUR MANILA OFFICE",
+      "address": "Luz J. Henson Building 494, Soldado St. corner A. Mabini, Ermita, Manila, Philippines",
+      "whatsapp": "WhatsApp",
+      "website": "WEBSITE",
+      "license": "DMW LICENSE",
+      "mapTitle": "TPM Manila office location"
+    },
+    "brand": {
+      "name": "Total Performance\nManpower Supply Corp.",
+      "tagline": "Turning Potential into Performance"
+    },
+    "columns": {
+      "employers": {
+        "heading": "Employers",
+        "services": "Recruitment Services",
+        "process": "Our Process"
+      },
+      "company": {
+        "heading": "Company",
+        "vision": "Our Vision",
+        "contact": "Contact"
+      },
+      "touch": {
+        "heading": "Get in Touch",
+        "whatsapp": "WhatsApp",
+        "email": "Email"
+      }
+    },
+    "copyright": "© {year} Total Performance Manpower Supply Corp. All Rights Reserved."
+  }
+}
