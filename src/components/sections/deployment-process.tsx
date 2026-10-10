@@ -85,7 +85,7 @@ export function DeploymentProcess() {
 
           <RevealItem className="clip-diagonal relative aspect-4/3 w-full overflow-hidden">
             <Image
-              src="/images/recruitment-meeting.jpg"
+              src="/images/deployment-passports.jpg"
               alt={t("imageAlt")}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

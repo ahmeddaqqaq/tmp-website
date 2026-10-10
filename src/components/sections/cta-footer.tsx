@@ -96,7 +96,7 @@ export function CtaFooter() {
             className="clip-diagonal relative aspect-4/3 w-full overflow-hidden"
           >
             <Image
-              src="/images/hero-bg.jpg"
+              src="/images/cta-workforce.jpg"
               alt={t("cta.imageAlt")}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

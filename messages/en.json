@@ -70,7 +70,7 @@
     "kicker": "END-TO-END RECRUITMENT",
     "headline": "A Clear Path\nto Deployment.",
     "body": "From candidate sourcing to arrival support, every step is managed with care, transparency, and full regulatory compliance.",
-    "imageAlt": "TPM consultant reviewing deployment documentation with candidates",
+    "imageAlt": "Philippine passports packed and ready for overseas deployment",
     "steps": {
       "source": "Source",
       "screen": "Screen",
@@ -90,6 +90,10 @@
       "previous": "Previous testimonial",
       "next": "Next testimonial",
       "items": {
+        "hussein": {
+          "quote": "Throughout our cooperation with TPM – Total Performance Manpower Agency in the Philippines, we have experienced a high level of professionalism, commitment, and responsiveness in providing qualified Filipino manpower. TPM has proven to be a reliable and effective partner, and we highly appreciate their cooperation and continued efforts to meet our staffing requirements.",
+          "title": "COO, Emdad Human Resources – KSA"
+        },
         "alam": {
           "quote": "I cannot speak highly enough about how much of a pleasure it was working with TPM as our PRA partner. TPM has been an extremely valuable resource and we couldn't be any glad with the service that it provided. Even more than its great work, our company appreciated TPM's professionalism and constant communication.",
           "title": "Consultant, Al Bilad Group – KSA"
@@ -144,7 +148,7 @@
       "body": "Whether you need exceptional talent or your next international opportunity, TPM is ready to help.",
       "hire": "Hire Filipino Talent",
       "explore": "Explore Job Opportunities",
-      "imageAlt": "TPM-deployed professionals across industries"
+      "imageAlt": "Skilled Filipino worker in safety gear on a job site"
     },
     "office": {
       "visit": "VISIT OUR MANILA OFFICE",

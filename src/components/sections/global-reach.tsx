@@ -10,6 +10,7 @@ import { Reveal, RevealItem } from "@/components/reveal";
 
 // Quotes and titles live in the message files; people's names stay as written.
 const TESTIMONIALS = [
+  { id: "hussein", name: "Maher Hussein" },
   { id: "alam", name: "Shauqat Alam" },
   { id: "moagrabi", name: "Engr. Mohammad Al Moagrabi" },
   { id: "shareef", name: "Abdulaziz Al Shareef" },
@@ -61,6 +62,7 @@ const PARTNER_LOGOS: { name: string; file: string; invert?: boolean }[] = [
   { name: "The Saudi Investment Bank", file: "saudi-investment-bank.png", invert: true },
   { name: "Bank Albilad", file: "albilad.png" },
   { name: "Saudi Electricity Company", file: "saudi-electricity-company.svg" },
+  { name: "Emdad Human Resources", file: "emdad.png" },
 ];
 
 function TrustedPartnerships() {
